@@ -1,14 +1,10 @@
 defmodule HelloWeb.CounterLive do
   use Phoenix.LiveView
 
+  alias HelloWeb.CounterView
+
   def render(assigns) do
-    ~L"""
-    <div>
-      <h1>The count is: <%= @val %></h1>
-      <button phx-click="dec">-</button>
-      <button phx-click="inc">+</button>
-    </div>
-    """
+    CounterView.render("index.html", assigns)
   end
 
   def handle_event("inc", _, socket) do
